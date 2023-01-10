@@ -1,18 +1,38 @@
-# Vue 3 + TypeScript + Vite
+# Desafio FrontEndMentor - Product Preview Card Component [Newbie]
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## Brief
 
-## Recommended IDE Setup
+Seu desafio é criar esse componente de cartão de visualização do produto e deixá-lo o mais próximo possível do design.
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Você pode usar qualquer ferramenta que desejar para ajudá-lo a concluir o desafio. Portanto, se você tem algo que gostaria de praticar, sinta-se à vontade para tentar.
 
-## Type Support For `.vue` Imports in TS
+Seus usuários devem ser capazes de:
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+- Visualize o layout ideal dependendo do tamanho da tela do dispositivo
+- Veja os estados de foco e foco para elementos interativos
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+## Tecnologias
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+![HTML5](https://img.shields.io/badge/-HTML5-333333?style=flat&logo=HTML5)
+![CSS](https://img.shields.io/badge/-CSS-333333?style=flat&logo=CSS3&logoColor=1572B6)
+![TypeScript](https://img.shields.io/badge/-TypeScript-333333?style=flat&logo=TypeScript)
+![Vuejs](https://img.shields.io/badge/-Vue-333333?style=flat&logo=Vue.js) 
+
+----
+
+## Versão Mobile
+
+<div align="center">
+
+<img src="https://user-images.githubusercontent.com/105789100/211436615-cc32dc23-7dfd-4f56-a17e-9e9d932fbf48.jpg" alt="drawing" height="400"/>
+
+</div>
+
+## Versão Desktop
+
+<div align="center">
+
+<img src="https://user-images.githubusercontent.com/105789100/211436624-333633d7-f297-4e5f-8b98-e2b4395f376c.jpg" alt="drawing" height="400"/>
+
+</div>
+
