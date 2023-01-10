@@ -1,4 +1,6 @@
-# Desafio FrontEndMentor - Product Preview Card Component [Newbie]
+# Desafio FrontEndMentor - Product Preview Card Component 
+
+Nível: **Newbie**
 
 ## Brief
 
