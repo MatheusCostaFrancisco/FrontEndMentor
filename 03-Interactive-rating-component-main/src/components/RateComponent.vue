@@ -63,7 +63,10 @@
   const isRated = (item: number) => item === model.rateChosed
 
   const setValueModel = (element: keyof Model, item: number | boolean) => {
-    if (element === 'sumbitted') model.rateChosed = Number(item)
+    if (element === 'sumbitted') {
+      model.rateChosed = Number(item)
+      return
+    }
 
     model.sumbitted = !!item
   }
