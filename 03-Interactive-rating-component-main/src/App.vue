@@ -8,4 +8,8 @@
   import RateComponent from './components/RateComponent.vue'
 </script>
 
-<style scoped></style>
+<style scoped>
+  .content {
+    perspective: 1000px;
+  }
+</style>
