@@ -1,5 +1,7 @@
 # Desafio FrontEndMentor - Product Preview Card Component 
 
+Link: <a href="https://product-preview-card-component-coral.vercel.app/" target="_blank"> Versão Online </a>
+
 Nível: **Newbie**
 
 ## Brief
