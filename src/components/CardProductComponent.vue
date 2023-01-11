@@ -55,7 +55,7 @@
   }
   .product-image {
     width: 100%;
-    height: 13.75px;
+    height: 13.75rem;
     background-image: url(/src/assets/image-product-mobile.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -122,7 +122,7 @@
     .product-container {
       flex-direction: row;
       width: 37.5rem;
-      height: 25px;
+      height: 25rem;
     }
 
     .product-image {
