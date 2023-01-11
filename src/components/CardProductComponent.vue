@@ -1,6 +1,9 @@
 <template>
   <div class="product-container">
-    <div class="product-image"></div>
+    <div
+      class="product-image"
+      alt="Imagem de um perfume, com o frasco quadrado de vidro, com uma adesivo no meio com a marca do fabricante."
+    ></div>
     <div class="product-bottom">
       <div class="product-subtitle">PERFUME</div>
       <div class="product-title">Gabrielle Essence Eau De Parfum</div>

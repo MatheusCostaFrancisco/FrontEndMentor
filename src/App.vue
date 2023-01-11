@@ -1,8 +1,8 @@
 <template>
-  <main class="content">
+  <main class="content" role="main">
     <CardProductComponent />
   </main>
-  <div class="attribution">
+  <div class="attribution" role="contentinfo">
     Challenge by
     <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
       >Frontend Mentor</a
