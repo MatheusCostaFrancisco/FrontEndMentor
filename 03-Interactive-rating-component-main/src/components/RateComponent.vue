@@ -164,6 +164,7 @@
     background-color: var(--orange);
     height: 3rem;
     width: 100%;
+    border: none;
   }
   .active {
     color: var(--white) !important;
