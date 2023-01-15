@@ -15,5 +15,5 @@ All projects Here
   <li> <a href="https://front-end-mentor-five-ochre.vercel.app/" target="_blank">Product preview card component </a> :white_check_mark: - Newbie</li>
   <li> <a href="https://qr-code-component-main-tau-ecru.vercel.app/" target="_blank">QR code component </a> :white_check_mark: - Newbie </li> 
   <li> <a href="https://interactive-rating-component-sand.vercel.app/" target="_blank">Intereactive rating component </a> :white_check_mark: - Newbie </li> 
-  <li> <a href="#">Multi-step form </a> :hammer: - Intermediate </li>  (Yes, I jump two newbie and five junior) 
+  <li> <a href="#">Multi-step form </a> :hammer: - Intermediate </li>  (Yes, I jumped two newbie and five junior) 
 </ol>
