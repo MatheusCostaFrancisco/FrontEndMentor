@@ -1,18 +1,27 @@
 <template>
   <nav name="navidagarion-steps" role="nav">
-    <ul class="steps-list">
-      <li v-for="(step, index) in steps" class="step-item">
+    <div class="steps-list">
+      <router-link
+        class="step-item"
+        v-for="(step, index) in steps"
+        :to="step.route"
+      >
         <div class="step-item__icon">{{ index + 1 }}</div>
         <div class="step-item__title">
-          <span>Step {{ index }}</span>
-          <h1>{{ step }}</h1>
+          <span class="subtilte">STEP {{ index + 1 }}</span>
+          <span class="title">{{ step.name }}</span>
         </div>
-      </li>
-    </ul>
+      </router-link>
+    </div>
   </nav>
 </template>
 
 <script lang="ts">
+  interface IStepObject {
+    name: string
+    route: string
+  }
+
   import { PropType } from '@vue/runtime-core'
   import { defineComponent } from 'vue'
 
@@ -20,7 +29,7 @@
     name: 'StepsComponent',
     props: {
       steps: {
-        type: Array as PropType<String[]>,
+        type: Array as PropType<IStepObject[]>,
       },
     },
   })
@@ -35,24 +44,39 @@
   }
   .step-item {
     display: flex;
+    align-items: center;
     gap: 1rem;
   }
   .step-item__icon {
-    width: 3rem;
-    height: 3rem;
+    width: 2.3rem;
+    height: 2.3rem;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    border: 1px solid var(--pastel-blue);
+    border: 1px solid var(--white);
+    color: var(--white);
+    font-weight: 500;
   }
   .step-item__icon:hover {
-    background-color: var(--pastel-blue);
+    background-color: var(--light-blue);
+    border: 1px solid var(--light-blue);
     cursor: pointer;
     color: var(--marine-blue);
   }
   .step-item__title {
     display: flex;
     flex-direction: column;
+  }
+
+  .subtilte {
+    color: var(--cool-gray);
+    font-size: 0.8rem;
+  }
+
+  .title {
+    color: var(--white);
+    font-weight: 700;
+    letter-spacing: 2px;
   }
 </style>
