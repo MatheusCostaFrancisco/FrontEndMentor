@@ -94,7 +94,11 @@
 
     <div class="action-section">
       <span class="btn-back" @click="$router.push('/user-info')">Go Back </span>
-      <Button color="marine-blue" label="Next Step" />
+      <Button
+        color="marine-blue"
+        @click="$router.push('/more-info')"
+        label="Next Step"
+      />
     </div>
   </div>
 </template>

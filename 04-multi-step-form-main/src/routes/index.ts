@@ -19,17 +19,17 @@ const routes = [
   {
     path: '/select-plan',
     component: SelectPlanView,
-    name: 'stepTwo',
+    name: 'select-plan',
   },
   {
     path: '/more-info',
     component: MoreInfoView,
-    name: 'stepThree',
+    name: 'more-info',
   },
   {
     path: '/summary-info',
     component: SummaryView,
-    name: 'stepfour',
+    name: 'summary-info',
   },
   {
     path: '/success',

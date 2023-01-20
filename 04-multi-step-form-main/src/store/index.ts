@@ -47,6 +47,9 @@ export const useMainStore = defineStore({
       }),
     } as MainStateType),
   actions: {
+    setUserInfo(user: UserType) {
+      this.user = user
+    },
     setPlan(plan: PlanNamesType) {
       this.planChosen.plan = plan
     },

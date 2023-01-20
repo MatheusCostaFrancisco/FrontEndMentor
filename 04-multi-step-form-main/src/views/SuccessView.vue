@@ -1,9 +1,11 @@
 <template>
   <div class="success-container">
-    <img
-      src="../assets/images/icon-thank-you.svg"
-      alt="ícone vermelho con um check no meio"
-    />
+    <router-link to="/user-info">
+      <img
+        src="../assets/images/icon-thank-you.svg"
+        alt="ícone vermelho con um check no meio"
+      />
+    </router-link>
     <h1>Thank You!</h1>
     <p>
       Thanks for confirming your subscription! We hope you have fun ussing our
@@ -23,7 +25,7 @@
 
 <style scoped>
   .success-container {
-    width: 32rem;
+    width: 30rem;
     height: 35rem;
     display: flex;
     align-items: center;

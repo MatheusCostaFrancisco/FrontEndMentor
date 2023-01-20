@@ -22,7 +22,9 @@
           <span>Acess to multiplayer games</span>
         </div>
         <div>
-          <span class="card-price">+$20/yr</span>
+          <span class="card-price">{{
+            `+${form.moreInfos.onlineService}/${abreviationFrequencySelected}`
+          }}</span>
         </div>
       </label>
       <label
@@ -37,11 +39,13 @@
           type="checkbox"
         />
         <div class="card-infos-container">
-          <h4>Online Service</h4>
-          <span>Acess to multiplayer games</span>
+          <h4>Larger Storage</h4>
+          <span>Extra 1TB of cloud save</span>
         </div>
         <div>
-          <span class="card-price">+$20/yr</span>
+          <span class="card-price">{{
+            `+${form.moreInfos.largerStorage}/${abreviationFrequencySelected}`
+          }}</span>
         </div>
       </label>
       <label
@@ -56,11 +60,13 @@
           type="checkbox"
         />
         <div class="card-infos-container">
-          <h4>Online Service</h4>
-          <span>Acess to multiplayer games</span>
+          <h4>Customizable Profile</h4>
+          <span>Custom theme on your profile</span>
         </div>
         <div>
-          <span class="card-price">+$20/yr</span>
+          <span class="card-price">{{
+            `+${form.moreInfos.customizableProfile}/${abreviationFrequencySelected}`
+          }}</span>
         </div>
       </label>
     </div>
@@ -69,7 +75,11 @@
       <span class="btn-back" @click="$router.push('/select-plan')"
         >Go Back</span
       >
-      <Button color="marine-blue" label="Next Step" />
+      <Button
+        @click="$router.push('/summary-info')"
+        color="marine-blue"
+        label="Next Step"
+      />
     </div>
   </div>
 </template>
@@ -78,6 +88,7 @@
   import { mapActions, mapState } from 'pinia'
   import { defineComponent } from 'vue'
   import Button from '../components/Button.vue'
+  import { MoreInfosType, plansService } from '../infra/services/plans.service'
   import { useMainStore } from '../store'
 
   export default defineComponent({
@@ -87,6 +98,13 @@
         onlineService: false,
         largerStorage: false,
         customizableProfile: false,
+      },
+      form: {
+        moreInfos: {
+          onlineService: '1',
+          largerStorage: '2',
+          customizableProfile: '2',
+        } as MoreInfosType,
       },
     }),
     watch: {
@@ -105,9 +123,18 @@
     },
     computed: {
       ...mapState(useMainStore, ['planChosen']),
+      abreviationFrequencySelected() {
+        return this.planChosen.frequency === 'Monthly' ? 'mo' : 'yr'
+      },
     },
     created() {
       this.model = this.planChosen.moreinfos
+    },
+    async mounted() {
+      const response = await plansService.getPlans()
+      const frequency =
+        (this.planChosen.frequency.toLowerCase() as 'monthly') || 'yearly'
+      this.form.moreInfos = response[frequency].moreInfos
     },
     components: {
       Button,

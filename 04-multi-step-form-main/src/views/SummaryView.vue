@@ -7,54 +7,157 @@
     <div class="card-summary">
       <div class="card-line">
         <div>
-          <h4>Arcade (Monthly)</h4>
-          <router-link to="/">Change</router-link>
+          <h4>{{ `${planChosen.plan} (${planChosen.frequency})` }}</h4>
+          <router-link to="/select-plan">Change</router-link>
         </div>
         <div class="card-line-price">
-          <span>$9/mo</span>
+          <span>{{ `${pricePerPlan}/${abreviationFrequencySelected}` }}</span>
         </div>
       </div>
       <hr />
-      <div class="card-line">
+      <div v-show="planChosen.moreinfos.onlineService" class="card-line">
         <div>
-          <p>Arcade (Monthly)</p>
+          <p>Online Service</p>
         </div>
         <div>
-          <span>+$1/mo</span>
+          <span>{{
+            `+$${priceByMoreInfo(
+              'onlineService'
+            )}/${abreviationFrequencySelected}`
+          }}</span>
         </div>
       </div>
-      <div class="card-line">
+      <div v-show="planChosen.moreinfos.largerStorage" class="card-line">
         <div>
-          <p>Online service</p>
+          <p>Larger Storege</p>
         </div>
         <div>
-          <span class="price-line">+$2/mo</span>
+          <span>{{
+            `+$${priceByMoreInfo(
+              'largerStorage'
+            )}/${abreviationFrequencySelected}`
+          }}</span>
+        </div>
+      </div>
+      <div v-show="planChosen.moreinfos.customizableProfile" class="card-line">
+        <div>
+          <p>Customizable profile</p>
+        </div>
+        <div>
+          <span>{{
+            `+$${priceByMoreInfo(
+              'customizableProfile'
+            )}/${abreviationFrequencySelected}`
+          }}</span>
         </div>
       </div>
     </div>
     <div class="total-line">
       <div>
-        <p>Online service</p>
+        <p>total (per month)</p>
       </div>
       <div>
-        <span class="total-price">+$12/mo</span>
+        <span class="total-price">{{
+          `+${totalPrice}/${abreviationFrequencySelected}`
+        }}</span>
       </div>
     </div>
     <div class="action-section">
       <span class="btn-back" @click="$router.push('/more-info')">Go Back</span>
-      <Button color="purplish-blue" label="Confirm" />
+      <Button
+        :disabled="!validateForm"
+        :color="!validateForm ? 'cool-gray' : 'purplish-blue'"
+        @click="handleConfirm"
+        label="Confirm"
+      />
     </div>
   </div>
 </template>
 
 <script lang="ts">
+  import { mapState } from 'pinia'
   import { defineComponent } from 'vue'
+  import validateForm from '../utils/validationForm'
   import Button from '../components/Button.vue'
+  import {
+    MoreInfosType,
+    plansService,
+    PlanType,
+  } from '../infra/services/plans.service'
+  import { useMainStore } from '../store'
 
   export default defineComponent({
     name: 'SummaryInfo',
+    data: () => ({
+      form: {
+        plan: {
+          prices: {
+            arcade: '',
+            advanced: '',
+            pro: '',
+          },
+          moreInfos: {
+            onlineService: '',
+            largerStorage: '',
+            customizableProfile: '',
+          },
+        } as PlanType,
+      },
+    }),
+    computed: {
+      ...mapState(useMainStore, ['planChosen']),
+      validateForm() {
+        return validateForm()
+      },
+      abreviationFrequencySelected() {
+        return this.planChosen.frequency === 'Monthly' ? 'mo' : 'yr'
+      },
+      pricePerPlan() {
+        const plan = this.planChosen.plan.toLocaleLowerCase() as
+          | 'arcade'
+          | 'advanced'
+          | 'pro'
+
+        return this.form.plan.prices[plan]
+      },
+      totalPrice() {
+        const { largerStorage, onlineService, customizableProfile } =
+          this.form.plan.moreInfos
+        let sum = 0
+        if (this.planChosen.moreinfos.largerStorage) {
+          sum = sum + Number(largerStorage)
+        }
+        if (this.planChosen.moreinfos.onlineService) {
+          sum = sum + Number(onlineService)
+        }
+        if (this.planChosen.moreinfos.customizableProfile) {
+          sum = sum + Number(customizableProfile)
+        }
+
+        return sum + Number(this.pricePerPlan)
+      },
+    },
+    methods: {
+      priceByMoreInfo(more: keyof MoreInfosType) {
+        const fre = this.planChosen.frequency.toLowerCase() as
+          | 'monthly'
+          | 'yearly'
+        return this.form.plan.moreInfos[more]
+      },
+      handleConfirm() {
+        localStorage.clear()
+        this.$router.push('/success')
+      },
+    },
     components: {
       Button,
+    },
+    async mounted() {
+      const response = await plansService.getPlans()
+      const frequency = this.planChosen.frequency.toLowerCase() as
+        | 'monthly'
+        | 'yearly'
+      this.form.plan = response[frequency]
     },
   })
 </script>

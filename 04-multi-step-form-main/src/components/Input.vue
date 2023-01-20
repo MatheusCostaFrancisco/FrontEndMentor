@@ -5,13 +5,13 @@
       <span v-show="errorLog">{{ errorLog }}</span>
     </div>
     <input
-      @input="$emit('update:modalValue', $event.target || '')"
+      @input="handleChange"
       :class="[errorLog ? 'input-error' : '']"
-      type="text"
+      :type="type"
       :name="name"
       :id="name"
       :placeholder="placeholder"
-      :value="modalValue"
+      :value="modelValue"
     />
   </div>
 </template>
@@ -21,6 +21,11 @@
 
   export default defineComponent({
     name: 'InputComponent',
+    methods: {
+      handleChange(event: any) {
+        this.$emit('update:modelValue', event.target.value || '')
+      },
+    },
     props: {
       name: {
         type: String,
@@ -36,7 +41,11 @@
       errorLog: {
         type: String,
       },
-      modalValue: {
+      type: {
+        type: String,
+        default: 'text',
+      },
+      modelValue: {
         type: String,
       },
     },
@@ -58,6 +67,12 @@
   .input__label {
     display: flex;
     justify-content: space-between;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
 
   input {

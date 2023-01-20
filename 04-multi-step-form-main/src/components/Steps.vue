@@ -1,17 +1,18 @@
 <template>
   <nav name="navidagarion-steps" role="nav">
     <div class="steps-list">
-      <router-link
-        class="step-item"
-        v-for="(step, index) in steps"
-        :to="step.route"
-      >
-        <div class="step-item__icon">{{ index + 1 }}</div>
+      <div class="step-item" v-for="(step, index) in steps">
+        <div
+          class="step-item__icon"
+          :class="[step.route === current ? 'current' : '']"
+        >
+          {{ index + 1 }}
+        </div>
         <div class="step-item__title">
           <span class="subtilte">STEP {{ index + 1 }}</span>
           <span class="step-item-title-name">{{ step.name }}</span>
         </div>
-      </router-link>
+      </div>
     </div>
   </nav>
 </template>
@@ -27,6 +28,14 @@
 
   export default defineComponent({
     name: 'StepsComponent',
+    data: () => ({
+      current: 'default',
+    }),
+    watch: {
+      '$route.name': function (curr) {
+        this.current = curr
+      },
+    },
     props: {
       steps: {
         type: Array as PropType<IStepObject[]>,
@@ -58,10 +67,9 @@
     color: var(--white);
     font-weight: 500;
   }
-  .step-item__icon:hover {
+  .current {
     background-color: var(--light-blue);
     border: 1px solid var(--light-blue);
-    cursor: pointer;
     color: var(--marine-blue);
   }
   .step-item__title {
