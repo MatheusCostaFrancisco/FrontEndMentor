@@ -1,14 +1,12 @@
 <template>
-  <main>
-    <div class="main">
-      <div class="steps-section">
-        <Steps :steps="steps" />
-      </div>
-      <div class="page-section">
-        <router-view></router-view>
-      </div>
+  <div class="main" role="main">
+    <div class="steps-section">
+      <Steps :steps="steps" />
     </div>
-  </main>
+    <div class="page-section">
+      <router-view></router-view>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
