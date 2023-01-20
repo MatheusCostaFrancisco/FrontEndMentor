@@ -1,7 +1,7 @@
 <template>
   <label class="switch">
     <input
-      @change="$emit('update:modelValue', $event.target.checked)"
+      @change="(e) => handleChange(e)"
       type="checkbox"
       :checked="modelValue"
     />
@@ -12,8 +12,21 @@
 <script lang="ts">
   import { defineComponent } from '@vue/runtime-core'
 
+  interface EventInputCheck extends Event {
+    target:
+      | ({
+          checked: boolean
+        } & EventTarget)
+      | any
+  }
+
   export default defineComponent({
     name: 'SwitchComponent',
+    methods: {
+      handleChange(event: EventInputCheck) {
+        this.$emit('update:modelValue', event.target.checked || false)
+      },
+    },
     props: {
       modelValue: {
         type: Boolean,
