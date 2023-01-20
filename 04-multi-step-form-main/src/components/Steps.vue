@@ -1,5 +1,5 @@
 <template>
-  <nav name="navidagarion-steps" role="nav">
+  <div name="navidagarion-steps" role="nav">
     <div class="steps-list">
       <div class="step-item" v-for="(step, index) in steps">
         <div
@@ -14,7 +14,7 @@
         </div>
       </div>
     </div>
-  </nav>
+  </div>
 </template>
 
 <script lang="ts">
