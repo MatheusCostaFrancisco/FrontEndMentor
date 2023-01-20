@@ -1,5 +1,5 @@
 <template>
-  <div id="section-personal-info">
+  <div id="section-main">
     <div class="title">
       <h1>Personal info</h1>
       <p>Please provide your name, email address, and phone number.</p>
@@ -42,33 +42,6 @@
 </script>
 
 <style scoped>
-  #section-personal-info {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    padding: 2rem;
-    padding-bottom: 1rem;
-    justify-content: space-between;
-    height: 35rem;
-  }
-
-  .title {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  h1 {
-    color: var(--marine-blue);
-    font-weight: 700;
-    font-size: 2rem;
-  }
-
-  p {
-    color: var(--cool-gray);
-  }
-
   .form {
     flex-grow: 1;
     display: flex;

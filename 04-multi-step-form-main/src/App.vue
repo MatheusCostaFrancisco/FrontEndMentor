@@ -1,10 +1,12 @@
 <template>
   <main>
-    <div class="steps-section">
-      <Steps :steps="steps" />
-    </div>
-    <div class="page-section">
-      <router-view></router-view>
+    <div class="main">
+      <div class="steps-section">
+        <Steps :steps="steps" />
+      </div>
+      <div class="page-section">
+        <router-view></router-view>
+      </div>
     </div>
   </main>
 </template>
@@ -41,16 +43,19 @@
   })
 </script>
 
-<style scoped>
-  main {
+<style>
+  .main {
     display: flex;
-    width: 60rem;
-    justify-content: space-between;
+    width: 59rem;
     flex-wrap: wrap;
     background-color: var(--white);
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     border-radius: 1rem;
     padding: 1rem;
+    height: 100%;
+  }
+  main {
+    height: 100%;
   }
 
   .steps-section {
@@ -65,6 +70,32 @@
     display: flex;
     flex-grow: 1;
     height: 100%;
-    padding: 0 4rem;
+    padding: 0 4rem 0rem;
+  }
+
+  #section-main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    padding-bottom: 1rem;
+    justify-content: space-between;
+    height: 35rem;
+  }
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  h1 {
+    color: var(--marine-blue);
+    font-weight: 700;
+    font-size: 2rem;
+  }
+
+  p {
+    color: var(--cool-gray);
   }
 </style>

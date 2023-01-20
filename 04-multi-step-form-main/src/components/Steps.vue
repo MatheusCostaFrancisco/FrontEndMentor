@@ -9,7 +9,7 @@
         <div class="step-item__icon">{{ index + 1 }}</div>
         <div class="step-item__title">
           <span class="subtilte">STEP {{ index + 1 }}</span>
-          <span class="title">{{ step.name }}</span>
+          <span class="step-item-title-name">{{ step.name }}</span>
         </div>
       </router-link>
     </div>
@@ -74,7 +74,7 @@
     font-size: 0.8rem;
   }
 
-  .title {
+  .step-item-title-name {
     color: var(--white);
     font-weight: 700;
     letter-spacing: 2px;

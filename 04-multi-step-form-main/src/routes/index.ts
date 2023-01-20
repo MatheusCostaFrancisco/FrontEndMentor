@@ -3,6 +3,7 @@ import PersonalInfoView from '../views/PersonalInfoView.vue'
 import SelectPlanView from '../views/SelectPlanView.vue'
 import MoreInfoView from '../views/MoreInfoView.vue'
 import SummaryView from '../views/SummaryView.vue'
+import SuccessView from '../views/SuccessView.vue'
 
 const routes = [
   {
@@ -29,6 +30,11 @@ const routes = [
     path: '/summary-info',
     component: SummaryView,
     name: 'stepfour',
+  },
+  {
+    path: '/success',
+    component: SuccessView,
+    name: 'success',
   },
 ]
 
