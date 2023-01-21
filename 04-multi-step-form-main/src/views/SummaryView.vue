@@ -54,7 +54,7 @@
     </div>
     <div class="total-line">
       <div>
-        <p>total (per month)</p>
+        <p>{{ `Total (per ${nameFrequencySelected})` }}</p>
       </div>
       <div>
         <span class="total-price">{{
@@ -111,6 +111,9 @@
       },
       abreviationFrequencySelected() {
         return this.planChosen.frequency === 'Monthly' ? 'mo' : 'yr'
+      },
+      nameFrequencySelected() {
+        return this.planChosen.frequency === 'Monthly' ? 'month' : 'year'
       },
       pricePerPlan() {
         const plan = this.planChosen.plan.toLocaleLowerCase() as

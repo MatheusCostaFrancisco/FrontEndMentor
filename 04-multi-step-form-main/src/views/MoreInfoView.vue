@@ -204,4 +204,18 @@
     border: 1px solid var(--purplish-blue);
     background-color: var(--alabaster);
   }
+
+  @media screen and (max-width: 60rem) {
+    label {
+      gap: 1rem;
+    }
+
+    .card-add-ons {
+      height: auto;
+      padding: 1rem;
+    }
+    .card-title {
+      gap: 0;
+    }
+  }
 </style>

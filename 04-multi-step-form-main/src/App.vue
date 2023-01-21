@@ -98,4 +98,50 @@
   p {
     color: var(--cool-gray);
   }
+
+  @media screen and (max-width: 60rem) {
+    #app {
+      width: 100%;
+      height: 100vh;
+    }
+    .main {
+      width: 100%;
+      flex-wrap: wrap;
+      flex-direction: column;
+      background: url('./assets/images/bg-sidebar-mobile.svg') no-repeat;
+      background-size: contain;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .page-section {
+      border-radius: 0.5rem;
+      padding: 0;
+      background-color: var(--white);
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    }
+    .steps-section {
+      border-radius: 0;
+      background: none;
+      width: 100%;
+      height: auto;
+    }
+
+    #section-main {
+      height: auto;
+    }
+
+    .action-section {
+      width: 100%;
+      left: 0;
+      position: absolute;
+      padding: 1rem;
+      bottom: 0;
+      background-color: var(--white);
+    }
+
+    footer {
+      display: none;
+    }
+  }
 </style>

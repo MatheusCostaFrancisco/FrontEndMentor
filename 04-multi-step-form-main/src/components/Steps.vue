@@ -33,7 +33,8 @@
     }),
     watch: {
       '$route.name': function (curr) {
-        this.current = curr
+        const route = curr === 'success' ? 'summary-info' : curr
+        this.current = route
       },
     },
     props: {
@@ -86,5 +87,17 @@
     color: var(--white);
     font-weight: 700;
     letter-spacing: 2px;
+  }
+
+  @media screen and (max-width: 60rem) {
+    .steps-list {
+      width: 100%;
+      flex-direction: row;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .step-item__title {
+      display: none;
+    }
   }
 </style>

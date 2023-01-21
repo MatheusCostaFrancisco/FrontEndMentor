@@ -44,4 +44,12 @@
   p {
     text-align: center;
   }
+
+  @media screen and (max-width: 60rem) {
+    .success-container {
+      width: 100%;
+      padding: 4rem 2rem;
+      height: 28rem;
+    }
+  }
 </style>

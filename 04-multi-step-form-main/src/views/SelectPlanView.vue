@@ -263,4 +263,22 @@
     align-items: center;
     justify-content: space-between;
   }
+
+  @media screen and (max-width: 60rem) {
+    .section-plans {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .plan-item > label {
+      width: 100%;
+      height: auto;
+      flex-direction: row;
+      justify-content: flex-start;
+      text-align: left;
+      gap: 1rem;
+    }
+    .plan-item-image {
+      flex-grow: 0;
+    }
+  }
 </style>
