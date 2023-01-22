@@ -1,0 +1,158 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@400;600&display=swap');
+
+* {
+  font-family: 'Poppins', 'Open sans', 'Arial';
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --violet: hsl(257, 40%, 49%);
+  --soft-magenta: hsl(300, 69%, 71%);
+  --white: hsl(0, 0%, 100%);
+}
+
+html {
+  background-color: var(--violet);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem 3rem;
+  background: url('./images/bg-mobile.svg') no-repeat;
+  background-size: contain;
+  height: 100%;
+  min-height: 100vh;
+  color: var(--white)
+}
+
+
+button {
+  border: none;
+}
+
+img {
+  background-repeat: no-repeat;
+}
+
+header>img {
+  width: 200px;
+}
+
+.banner img {
+  width: 100%;
+}
+
+.content {
+  padding-top: 4rem;
+  text-align: center;
+}
+
+.content p {
+  font-family: 'Open sans';
+  margin-top: 1rem;
+  font-size: 1.35rem;
+  font-weight: 400;
+  line-height: 2.125rem;
+}
+
+.actions {
+  padding-top: 3rem;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.actions button {
+  background-color: var(--white);
+  font-size: 1rem;
+  width: 17rem;
+  height: 3.5rem;
+  border-radius: 4rem;
+
+}
+
+.actions button:hover, .social-midias button:hover {
+  background-color: var(--soft-magenta);
+  color: var(--white);
+  cursor: pointer;
+  border: none
+}
+
+.social-midias {
+  padding-top: 3rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem
+}
+
+.social-midias button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: 1px solid var(--white);
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+}
+
+.social-midias img {
+  width: 1.125rem;
+  fill: var(--white);
+  color: var(--white);
+  background-image: var(--white);
+}
+
+.attribution {
+  width: 100%;
+  margin-top: 1rem;
+  font-size: 11px;
+  text-align: center;
+  width: 80%;
+}
+
+.attribution a {
+  color: var(--white)
+}
+
+@media screen and (min-width: 1440px) {
+
+  body {
+    min-height: 500px;
+    padding: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  main {
+    flex-wrap: wrap;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 4rem
+  }
+
+  .content {
+    width: 28rem;
+    text-align: left;
+  }
+
+  .actions {
+    padding: 1rem 0rem;
+    text-align: left;
+  }
+
+  .social-midias {
+    justify-content: flex-end;
+
+  }
+
+  .attribution {
+    width: 100%;
+  }
+}
